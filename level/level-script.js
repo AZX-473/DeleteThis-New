@@ -2,6 +2,7 @@ var url = window.location.pathname;
 url = url.substring(url.lastIndexOf('/') + 1);
 url = url.substring(0,url.lastIndexOf('.'));
 url++;
+let nowlevel=parseInt(url)-1;
 function nextlevel() {
     window.location.href='./'+url+'.html';
 }
@@ -10,8 +11,14 @@ divlist=document.getElementsByTagName('div');
 for(let i=0;i<divlist.length;i++){
     var now=divlist[i];
     now.onclick=function (){
-        if(i===0) nextlevel();
+        if(i===0&&nowlevel!==3) nextlevel();
         now.innerHTML='';
+        if(nowlevel===3){
+            var cilickdown=document.getElementById('nowcilick');
+            const nowcilick = parseInt(cilickdown.textContent)-1;
+            cilickdown.textContent=nowcilick.toString();
+            if(nowcilick===0) nextlevel();
+        }
     }
 }
 function move(x,y,id) {
@@ -35,7 +42,7 @@ function move(x,y,id) {
     temp.style.marginBottom=newd+'px';
     temp.style.marginRight=newr+'px';
 }
-if(url===3){
+if(nowlevel===2){
     let id='moved';
     let timer = setInterval(function() {
         move(1,1,id);
