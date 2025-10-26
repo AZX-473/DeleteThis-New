@@ -17,7 +17,7 @@ for(let i=0;i<divlist.length;i++){
             var cilickdown=document.getElementById('nowcilick');
             const nowcilick = parseInt(cilickdown.textContent)-1;
             cilickdown.textContent=nowcilick.toString();
-            if(nowcilick===0) nextlevel();
+            if(nowcilick<=0) nextlevel();
         }
     }
 }
