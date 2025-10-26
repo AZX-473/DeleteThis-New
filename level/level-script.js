@@ -14,16 +14,30 @@ for(let i=0;i<divlist.length;i++){
         now.innerHTML='';
     }
 }
-function moveto(x,y,id) {
+function move(x,y,id) {
     var temp=document.getElementById(id);
-    temp.style.top = y+'px';
-    temp.style.left = x+'px';
+    let newu=parseInt(temp.style.marginTop)||0;
+    let newl=parseInt(temp.style.marginLeft)||0;
+    let newd=parseInt(temp.style.marginBottom)||0;
+    let newr=parseInt(temp.style.marginRight)||0;
+    if(newu+y<0){
+        newd=newd+y;
+    }else{
+        newu=newu+y;
+    }
+    if(newl+x<0){
+        newr=newr+x;
+    }else{
+        newl=newl+x;
+    }
+    temp.style.marginTop=newu+'px';
+    temp.style.marginLeft=newl+'px';
+    temp.style.marginBottom=newd+'px';
+    temp.style.marginRight=newr+'px';
 }
 if(url===3){
-    let x=0,y=0,id='moved';
+    let id='moved';
     let timer = setInterval(function() {
-        y+=100;
-        y%=1080;
-        moveto(x,y,id);
-    }, 1000);
+        move(1,1,id);
+    }, 10);
 }
