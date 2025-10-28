@@ -7,7 +7,7 @@ let boxnumber;
 function nextlevel() {
     var nextandnull=document.getElementsByTagName('body')[0];
     nextandnull.innerHTML='<h1>看啥看,下一关去!</h1>';
-    //window.location.href='./'+url+'.html';
+    window.location.href='./'+url+'.html';
 }
 function setdeletebox() {
     var divlist=new Array();
