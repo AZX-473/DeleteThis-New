@@ -3,24 +3,34 @@ url = url.substring(url.lastIndexOf('/') + 1);
 url = url.substring(0,url.lastIndexOf('.'));
 url++;
 let nowlevel=parseInt(url)-1;
+let boxnumber;
 function nextlevel() {
-    window.location.href='./'+url+'.html';
+    var nextandnull=document.getElementsByTagName('body')[0];
+    nextandnull.innerHTML='<h1>看啥看,下一关去!</h1>';
+    //window.location.href='./'+url+'.html';
 }
-var divlist=new Array();
-divlist=document.getElementsByTagName('div');
-for(let i=0;i<divlist.length;i++){
-    var now=divlist[i];
-    now.onclick=function (){
-        if(i===0&&nowlevel!==3) nextlevel();
-        now.innerHTML='';
-        if(nowlevel===3){
-            var cilickdown=document.getElementById('nowcilick');
-            const nowcilick = parseInt(cilickdown.textContent)-1;
-            cilickdown.textContent=nowcilick.toString();
-            if(nowcilick<=0) nextlevel();
+function setdeletebox() {
+    var divlist=new Array();
+    divlist=document.getElementsByTagName('div');
+    boxnumber=divlist.length;
+    for(let i=0;i<divlist.length;i++){
+        var now=divlist[i];
+        now.onclick=function (){
+            if(now.id>0){
+                now.id--;
+                if(now.id<=0){
+                    console.log(i);
+                    now.innerHTML='';
+                    document.getElementById('0').remove();
+                    boxnumber--;
+                    if(boxnumber===0) nextlevel();
+                }
+            }
         }
     }
 }
+setdeletebox();
+
 function move(x,y,id) {
     var temp=document.getElementById(id);
     let newu=parseInt(temp.style.marginTop)||0;
@@ -43,7 +53,7 @@ function move(x,y,id) {
     temp.style.marginRight=newr+'px';
 }
 if(nowlevel===2){
-    let id='moved';
+    let id='1';
     let timer = setInterval(function() {
         move(1,1,id);
     }, 10);
