@@ -2,32 +2,45 @@ var url = window.location.pathname;
 url = url.substring(url.lastIndexOf('/') + 1);
 url = url.substring(0,url.lastIndexOf('.'));
 url++;
+const refreshicon='https://images.icon-icons.com/1380/PNG/512/emblemsynchronizing_93485.png'
+//refresh icon
 let nowlevel=parseInt(url)-1;
-let boxnumber;
+let boxnumber=0;
 function nextlevel() {
     var nextandnull=document.getElementsByTagName('body')[0];
     nextandnull.innerHTML='<h1>看啥看,下一关去!</h1>';
     window.location.href='./'+url+'.html';
 }
+function refresh() {
+    window.location.href='./'+nowlevel.toString()+'.html';
+}
+function addf1(itarge){
+    console.log(itarge+'OK');
+    itarge.id--;
+    if(itarge.id<=0){
+        boxnumber--;
+        if(boxnumber===0) nextlevel();
+        itarge.innerHTML='';
+        itarge.remove();
+    }
+}
+document.addEventListener('DOMContentLoaded', function() {
+    const allDivs = document.querySelectorAll('div');
+    allDivs.forEach(div => {
+        div.addEventListener('click', function(event) {
+            addf1(event.target);
+        });
+    });
+    boxnumber=allDivs.length;
+    console.log(`为 ${allDivs.length} 个 div 设置了 click 事件监听器。`);
+});
 function setdeletebox() {
-    var divlist=new Array();
+    /*var divlist=[];
     divlist=document.getElementsByTagName('div');
     boxnumber=divlist.length;
     for(let i=0;i<divlist.length;i++){
-        var now=divlist[i];
-        now.onclick=function (){
-            if(now.id>0){
-                now.id--;
-                if(now.id<=0){
-                    console.log(i);
-                    now.innerHTML='';
-                    document.getElementById('0').remove();
-                    boxnumber--;
-                    if(boxnumber===0) nextlevel();
-                }
-            }
-        }
-    }
+        divlist[i].onclick=addf1(i);
+    }*/
 }
 setdeletebox();
 
@@ -58,3 +71,5 @@ if(nowlevel===2){
         move(1,1,id);
     }, 10);
 }
+var bodycode=document.getElementsByTagName('body')[0];
+bodycode.innerHTML='<img src="'+refreshicon+'" style="width: 50px;height: 50px;" onclick="refresh()" alt="刷新" </img>'+bodycode.innerHTML;
