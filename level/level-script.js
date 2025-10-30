@@ -19,7 +19,7 @@ function addf1(itarge){
     itarge.id--;
     if(itarge.id<=0){
         boxnumber--;
-        if(boxnumber===0) nextlevel();
+        if(boxnumber<=0) nextlevel();
         itarge.innerHTML='';
         itarge.remove();
     }
@@ -64,12 +64,6 @@ function move(x,y,id) {
     temp.style.marginLeft=newl+'px';
     temp.style.marginBottom=newd+'px';
     temp.style.marginRight=newr+'px';
-}
-if(nowlevel===2){
-    let id='1';
-    let timer = setInterval(function() {
-        move(1,1,id);
-    }, 10);
 }
 var bodycode=document.getElementsByTagName('body')[0];
 bodycode.innerHTML='<img src="'+refreshicon+'" style="width: 50px;height: 50px;" onclick="refresh()" alt="刷新" </img>'+bodycode.innerHTML;

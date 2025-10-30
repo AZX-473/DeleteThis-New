@@ -11,16 +11,11 @@
     <link rel="stylesheet" type="text/css" href="./stylus.css">
 </head>
 <body>
-<h1>百层速降!</h1>
-<div class="Delete" style="height: 100px;width: 100px" id=100></div>
-<h3>不给你显示次数了偶</h3>
+<h1>考考你的眼力!</h1>
+<div class="Delete" id="1" style="width: 2px;height: 2px"></div>
 <script src="level-script.js"></script>
 <script>
-    var num=document.getElementsByTagName('h3')[0];
-    var getnum=document.getElementsByTagName('div')[0];
-    let timer = setInterval(function() {
-        num.innerText='剩余次数:'+getnum.id;
-    }, 10)
+    move(100,100,1);
 </script>
 </body>
 </html>
