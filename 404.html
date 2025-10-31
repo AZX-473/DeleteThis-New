@@ -13,11 +13,25 @@
 <body>
 <div class="Delete">
     <center>
-        <h2>赢了,牛逼!</h2>
-        <h1>你已经通关了所有关卡</h1>
-        <h2>感谢游玩DeleteThis</h2>
+        <h2>请输入您的昵称</h2>
+        <h1>以方便作为您通关的证明</h1>
+        <label>
+            <input placeholder="请输入你的昵称"></input>
+            <button onclick="getInputValue()">OK</button>
+        </label>
     </center>
 </div>
 <script src="script.js"></script>
+<script>
+    function getInputValue() {
+        var userInput = document.getElementsByTagName("input")[0].value;
+        const code = '<center>' +
+            '<h2>赢了,牛逼!</h2>\n' +
+            '<h1>你已经通关了所有关卡</h1>\n' +
+            '<h2>感谢游玩DeleteThis</h2>' +
+            '<h1>颁发给'+userInput + '的证书</h1>';
+        document.getElementsByTagName('body')[0].innerHTML = code;
+    }
+</script>
 </body>
 </html>
