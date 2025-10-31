@@ -11,7 +11,21 @@
     <link rel="stylesheet" type="text/css" href="./stylus.css">
 </head>
 <body>
-    
+<label>
+    <input placeholder="1+1等于多少?"></input>
+    <button onclick="getInputValue()">提交</button>
+</label>
 <script src="level-script.js"></script>
+<script>
+    function getInputValue() {
+        let userInput = document.getElementsByTagName("input")[0].value;
+        if(userInput === '2'){
+            alert("难道他真的是天才?");
+            document.getElementsByTagName("body")[0].innerHTML="<img src='./v&m&i/refresh.png' style='width: 50px;height: 50px;' onclick='refresh()' alt='刷新' </img> <div class='Delete' onclick='nextlevel()' style='width: 100px;height: 100px;'><h1>666开桂了</h1></div>";
+        }else{
+            alert("乐子,这都算不对");
+        }
+    }
+</script>
 </body>
 </html>
