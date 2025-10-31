@@ -2,7 +2,7 @@ var url = window.location.pathname;
 url = url.substring(url.lastIndexOf('/') + 1);
 url = url.substring(0,url.lastIndexOf('.'));
 url++;
-const refreshicon='https://images.icon-icons.com/1380/PNG/512/emblemsynchronizing_93485.png'
+const refreshicon="./v&m&i/refresh.png";
 //refresh icon
 let nowlevel=parseInt(url)-1;
 let boxnumber=0;
