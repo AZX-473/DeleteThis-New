@@ -1,0 +1,30 @@
+[
+  {
+    "name": "关卡一",
+    "url": "/level/1.html"
+  },
+  {
+    "name": "关卡二",
+    "url": "/level/2.html"
+  },
+  {
+    "name": "关卡三",
+    "url": "/level/3.html"
+  },
+  {
+    "name": "关卡四",
+    "url": "/level/4.html"
+  },
+  {
+    "name": "关卡五",
+    "url": "/level/5.html"
+  },
+  {
+    "name": "关卡六",
+    "url": "/level/6.html"
+  },
+  {
+    "name": "关卡七",
+    "url": "/level/7.html"
+  }
+]
