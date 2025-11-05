@@ -24,8 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 link.innerText=level.name;
                 link.style.color = 'white';
-                link.style.width = '100px';
-                link.style.display = 'inline-grid';
+                link.style.width = '300px';
+                link.style.height = '30px';
+                link.style.border = '1px solid white';
+                listItem.style.display = 'block';
+                //link.style.paddingBottom = '5px';
                 listItem.appendChild(link);    // 将链接添加到列表项
                 levelListContainer.appendChild(listItem); // 将列表项添加到容器
             });

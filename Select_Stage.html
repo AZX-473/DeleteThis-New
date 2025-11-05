@@ -14,8 +14,42 @@
     <center>
         <h1>Select_Stage!</h1>
         <h2>临时离开?存档丢失?试试从下面跳关!</h2>
-        <div style="background-color: black; width:100%;height: 100vh" id="Select_Stage_background"></div>
+        <div style="background-color: black;" id="Select_Stage_background">
+            <img src="./科技特效.gif" alt="传送门" style="height: 200px;width: 200px;"></img>
+            <label>
+                <input placeholder="快捷传送(请输入关卡上方编号)"></input>
+                <button onclick="gotolevel()">传送</button>
+            </label>
+        </div>
     </center>
 <script src="Select_Stage.js"></script>
+<script>
+    function gotolevel() {
+        let userInput = document.getElementsByTagName("input")[0].value;
+        function isUrlValid(url, callback) {
+            fetch(url, { method: 'HEAD' }) // 使用 HEAD 请求，只获取头部信息，不下载内容，效率高
+                .then(response => {
+                    // response.ok 为 true 表示状态码在 200-299 之间，即成功
+                    if (response.ok) {
+                        callback(true, "URL is valid and accessible.");
+                    } else {
+                        callback(false, `URL returned status code: ${response.status}`);
+                    }
+                })
+                .catch(error => {
+                    // 捕获网络错误（如 DNS 解析失败、连接被拒绝等）
+                    callback(false, `Error: ${error.message}`);
+                });
+        }
+        isUrlValid(`./level/${userInput}.html`, function(isValid, message) {
+            if (isValid) {
+                alert("传送成功!");
+                location.href=`./level/${userInput}.html`;
+            } else {
+                alert("传送失败,关卡不存在!");
+            }
+        });
+    }
+</script>
 </body>
 </html>

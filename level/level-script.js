@@ -66,4 +66,4 @@ function move(x,y,id) {
     temp.style.marginRight=newr+'px';
 }
 var bodycode=document.getElementsByTagName('body')[0];
-bodycode.innerHTML='<img src="'+refreshicon+'" style="width: 50px;height: 50px;" onclick="refresh()" alt="刷新" </img>'+bodycode.innerHTML;
+bodycode.innerHTML='<h2>关卡编号:'+nowlevel+'</h2><img src="'+refreshicon+'" style="width: 50px;height: 50px;" onclick="refresh()" alt="刷新" </img>'+bodycode.innerHTML;
